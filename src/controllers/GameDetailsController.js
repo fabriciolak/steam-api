@@ -1,13 +1,12 @@
-const Steam = require('steamapi')
-const AppError = require('../utils/ServiceError')
-const steam = new Steam(process.env.STEAM_KEY)
+const api = require('../api/steamapi')
 
 class GameDetailsController {
     async index(req, res) {
         try {
             const { appId } = req.params
+            const region = req.query.cc || 'br'
 
-            const gameResponse = await steam.getGameDetails(String(appId), false, 'br')
+            const gameResponse = await api.getGameDetails(String(appId), false, region)
             return res.status(200).json(gameResponse)
         } catch (error) {
             res.status(404).json({
