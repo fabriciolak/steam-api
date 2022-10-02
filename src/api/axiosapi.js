@@ -1,7 +1,7 @@
 const axios = require('axios').default
 
 const api = axios.create({
-  baseURL: 'https://api.steampowered.com',
+  baseURL: 'https://store.steampowered.com/api',
 })
 
 module.exports = api
