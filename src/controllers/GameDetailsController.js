@@ -1,13 +1,15 @@
-const api = require('../api/steamapi')
+const api = require('../api/axiosapi')
 
 class GameDetailsController {
     async index(req, res) {
         try {
             const { appId } = req.params
             const region = req.query.cc || 'br'
+            const language = req.query.l || 'portuguese'
+            
+            const gameResponse = await api.get(`https://store.steampowered.com/api/appdetails?appids=${appId}&cc=${region}&l=${language}`)
 
-            const gameResponse = await api.getGameDetails(String(appId), false, region)
-            return res.status(200).json(gameResponse)
+            return res.status(200).json(gameResponse.data)
         } catch (error) {
             res.status(404).json({
                 app: req.params.appId,
@@ -15,6 +17,8 @@ class GameDetailsController {
             })
         }
     }
+
+
 }
 
 module.exports = GameDetailsController
