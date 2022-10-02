@@ -1,11 +1,16 @@
 
-# Steam API - v1.0
+# Steam API
 
 Api for developers to use information from steam games creatively
 
 
 
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env
+
+`STEAM_KEY`
 ## Getting an API Key
 
 Once signed into Steam, head over to http://steamcommunity.com/dev/apikey to generate an API key.
@@ -71,3 +76,6 @@ Once signed into Steam, head over to http://steamcommunity.com/dev/apikey to gen
 
 
 #### return news for app id.
+
+
+
