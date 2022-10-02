@@ -7,7 +7,7 @@ class GameDetailsController {
             const region = req.query.cc || 'br'
             const language = req.query.l || 'portuguese'
             
-            const gameResponse = await api.get(`https://store.steampowered.com/api/appdetails?appids=${appId}&cc=${region}&l=${language}`)
+            const gameResponse = await api.get(`/appdetails?appids=${appId}&cc=${region}&l=${language}`)
 
             return res.status(200).json(gameResponse.data)
         } catch (error) {
