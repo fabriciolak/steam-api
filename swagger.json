@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Steam API",
+    "description": "Api for developers to use information from steam games creatively",
+    "contact": {
+      "name": "Fabrício",
+      "url": "https://github.com/fabriciolak/steam-api/issues",
+      "email": "fabriciolak12@gmail.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://github.com/fabriciolak/steam-api/blob/main/LICENSE"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development"
+    }
+  ],
+  "paths": {
+    "/featured": {
+      "get": {
+        "description": "Get featured games on the steam store",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "cc",
+          "description": "Currency Code: You can change currency code by adding the parameter cc. code region: us, es, de, fr, ru, nz, au, uk, br",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    "/featuredcategories": {
+      "get": {
+        "description": "Get featured categories on the steam store.",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "cc",
+          "description": "Currency Code: You can change currency code by adding the parameter cc. code region: us, es, de, fr, ru, nz, au, uk, br",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "l",
+          "description": "You can use any language from these respective places us, es, de, fr, ru, nz, au, uk, br. default it is portuguese",
+          "in": "query",
+          "required": false
+        }
+      ]
+    }
+  }
+}
