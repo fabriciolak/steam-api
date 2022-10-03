@@ -7,6 +7,9 @@ app.use(routes)
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json')
+const methodNotAllowed = require('./src/middlewares/methodNotAllowed')
+
+app.use('/', methodNotAllowed)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
