@@ -13,5 +13,5 @@ app.use('/', methodNotAllowed)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const port = 3000 || 5000
+const port = process.env.PORT || 5000
 app.listen(port, () => console.log('Server running: http://localhost:'+port))
